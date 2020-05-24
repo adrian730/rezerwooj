@@ -2,15 +2,23 @@ package com.example.rezerwoojcom;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
+import android.widget.TextView;
 
 public class thirdActivity extends AppCompatActivity {
+
+    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
+    Hotel pok1 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,14 +27,30 @@ public class thirdActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                /////////////////////////// odzyt z bazy ////////////////////
+                pok1 = dataSnapshot.child("room2").getValue(Hotel.class);
+                TextView t1 = findViewById(R.id.texta);
+                t1.setText(pok1.getQuantity());
+
+                TextView t2 = findViewById(R.id.text2);
+                t2.setText(pok1.getFloor());
+
+                TextView t3 = findViewById(R.id.textc);
+                t3.setText(pok1.getImage());
+
+                TextView t4 = findViewById(R.id.textc);
+                t4.setText(pok1.getCity());
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
-    }
 
-}
+}}

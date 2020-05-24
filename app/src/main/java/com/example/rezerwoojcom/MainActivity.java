@@ -2,12 +2,14 @@ package com.example.rezerwoojcom;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.icu.text.IDNA;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,8 +22,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,13 +33,14 @@ public class MainActivity extends AppCompatActivity {
     private EditText Password;
     private Button Login;
 
+    Hotel pyta = null;
+
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
-///////////
-    Hotel przyklad = new Hotel();
-
-    Hotel hotel = new Hotel();
-
+//   public Hotel room1 = new Hotel();
+   public Hotel room2 = new Hotel();
+   public Hotel room3 = new Hotel();
+   public Hotel room4 = new Hotel();
 
 
 
@@ -48,7 +53,12 @@ public class MainActivity extends AppCompatActivity {
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-           przyklad =  dataSnapshot.child("rezerwooj").getValue(Hotel.class);
+
+                /////////////////////////// odzyt z bazy ////////////////////
+                pyta = dataSnapshot.child("room2").getValue(Hotel.class);
+                TextView gejj = findViewById(R.id.abc);
+                gejj.setText(pyta.getFloor());
+
             }
 
             @Override
@@ -61,20 +71,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
         ///////////////działający zapis do bazy///////////
 //        mDatabase.child("rezerwooj").setValue(hotel);
 //        mDatabase.child("user").setValue("user");
+//        mDatabase.child("room2").setValue(room1);
 
 
 
 
-
-
-
-///////////działający odczyt////////
-        TextView gejj = findViewById(R.id.abc);
-        gejj.setText(przyklad.name);
-/////////////////////
 
 
 
