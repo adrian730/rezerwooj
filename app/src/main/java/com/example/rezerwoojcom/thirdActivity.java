@@ -19,6 +19,7 @@ public class thirdActivity extends AppCompatActivity {
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
     Hotel pok1 = null;
+    Hotel pok2 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +34,19 @@ public class thirdActivity extends AppCompatActivity {
 
                 /////////////////////////// odzyt z bazy ////////////////////
                 pok1 = dataSnapshot.child("room2").getValue(Hotel.class);
-                TextView t1 = findViewById(R.id.texta);
+                TextView t1 = findViewById(R.id.text1);
                 t1.setText(pok1.getQuantity());
 
                 TextView t2 = findViewById(R.id.text2);
                 t2.setText(pok1.getFloor());
 
-                TextView t3 = findViewById(R.id.textc);
+                TextView t3 = findViewById(R.id.text3);
                 t3.setText(pok1.getImage());
 
-                TextView t4 = findViewById(R.id.textc);
+                TextView t4 = findViewById(R.id.text4);
                 t4.setText(pok1.getCity());
+
+
 
             }
 
