@@ -1,5 +1,6 @@
 package com.example.rezerwoojcom;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.firebase.database.DataSnapshot;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.View;
 import android.widget.TextView;
 
 public class thirdActivity extends AppCompatActivity {
@@ -26,7 +28,10 @@ public class thirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Witaj User!");
         setSupportActionBar(toolbar);
+
+
 
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -54,6 +59,8 @@ public class thirdActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
         });
+
 
 }}
