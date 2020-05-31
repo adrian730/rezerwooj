@@ -28,6 +28,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+
         rezerwuj = findViewById(R.id.rezerwuj);
         nastepne = findViewById(R.id.button_second);
 
@@ -69,6 +70,14 @@ public class Main2Activity extends AppCompatActivity {
                 TextView t4 = findViewById(R.id.textd);
                 t4.setText(pok2.getCity());
 
+         if( (pok2.getName()).equals("true")){
+             rezerwuj.setEnabled(false);
+             rezerwuj.setText("Zarezerwowano!");
+             }
+            else{
+             rezerwuj.setEnabled(true);
+             rezerwuj.setText("Rezerwuj!");
+         }
 
             }
 
