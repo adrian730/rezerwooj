@@ -21,6 +21,7 @@ public class Main2Activity extends AppCompatActivity {
     Hotel pok2 = null;
     Button rezerwuj;
     Button nastepne;
+    Boolean isReserved = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,11 @@ public class Main2Activity extends AppCompatActivity {
         rezerwuj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDatabase.child("room1").child("name").setValue("test2");
+                mDatabase.child("room1").child("name").setValue("true");
+                isReserved = true;
+                rezerwuj.setEnabled(false);
+                rezerwuj.setText("Zarezerwowano!");
+
             }
         });
 
@@ -74,6 +79,7 @@ public class Main2Activity extends AppCompatActivity {
         });
 
     }
+
 
 
 

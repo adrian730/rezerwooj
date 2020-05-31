@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 validate(User.getText().toString(), Password.getText().toString());
 
-
             }
         });
     }
