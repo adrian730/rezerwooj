@@ -40,29 +40,7 @@ public class SecondActivity extends AppCompatActivity {
         final TextView stat2 = findViewById(R.id.status2);
 
 
-        odw1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDatabase.child("room1").child("name").setValue("false");
-                odw1.setEnabled(false);
-                odw1.setText("Wolny");
-                stat1.setText("wolny");
 
-            }
-        });
-
-        odw2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDatabase.child("room2").child("name").setValue("false");
-                odw2.setEnabled(false);
-                odw2.setText("Wolny");
-                stat2.setText("wolny");
-
-
-
-            }
-        });
 
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -97,5 +75,31 @@ public class SecondActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+
+        odw1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatabase.child("room1").child("name").setValue("false");
+                odw1.setEnabled(false);
+                odw1.setText("Wolny");
+                stat1.setText("wolny");
+
+            }
+        });
+
+        odw2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatabase.child("room2").child("name").setValue("false");
+                odw2.setEnabled(false);
+                odw2.setText("Wolny");
+                stat2.setText("wolny");
+
+
+
+            }
+        });
     }
+
+
 }
