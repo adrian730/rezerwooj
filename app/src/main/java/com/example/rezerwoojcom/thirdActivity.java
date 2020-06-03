@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class thirdActivity extends AppCompatActivity {
 
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-    final Button rezerwujpok = findViewById(R.id.rezerwujpok);
+//    final Button rezerwujpok = findViewById(R.id.rezerwujpok);
     Hotel pok1 = null;
     Hotel pok2 = null;
 
