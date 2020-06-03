@@ -55,19 +55,21 @@ public class SecondActivity extends AppCompatActivity {
 
                 if(pok2.getName().equals("true")){
                     stat1.setText("zarezerwowany");
+                    odw1.setEnabled(true);
                 }
                 else{
                     stat1.setText("wolny");
-                    odw2.setEnabled(false);
-                    odw2.setText("Wolny");
+                    odw1.setEnabled(false);
+                    odw1.setText("Wolny");
                 }
                 if(pok1.getName().equals("true")){
                     stat2.setText("zarezerwowany");
+                    odw2.setEnabled(true);
                 }
                 else{
                     stat2.setText("wolny");
-                    odw1.setEnabled(false);
-                    odw1.setText("Wolny");
+                    odw2.setEnabled(false);
+                    odw2.setText("Wolny");
                 }
             }
 
