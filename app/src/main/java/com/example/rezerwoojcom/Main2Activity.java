@@ -29,7 +29,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
 
-        rezerwuj = findViewById(R.id.rezerwuj);
+        rezerwuj = findViewById(R.id.rezerwujpok);
         nastepne = findViewById(R.id.button_second);
 
 

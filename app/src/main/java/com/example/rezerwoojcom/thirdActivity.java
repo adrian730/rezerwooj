@@ -1,6 +1,5 @@
 package com.example.rezerwoojcom;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,9 +19,10 @@ import android.widget.TextView;
 public class thirdActivity extends AppCompatActivity {
 
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-
+    final Button rezerwujpok = findViewById(R.id.rezerwujpok);
     Hotel pok1 = null;
     Hotel pok2 = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +32,6 @@ public class thirdActivity extends AppCompatActivity {
         toolbar.setTitle("Witaj User!");
         setSupportActionBar(toolbar);
 
-
-      final Button rezerwuj = findViewById(R.id.rezerwuj);
-
-
-
-        rezerwuj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDatabase.child("room2").child("name").setValue("true");
-
-                rezerwuj.setEnabled(false);
-                rezerwuj.setText("Zarezerwowano!");
-
-            }
-        });
 
 
 
