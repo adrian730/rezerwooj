@@ -72,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
         ///////////////działający zapis do bazy///////////
 //        mDatabase.child("rezerwooj").setValue(hotel);
 //        mDatabase.child("user").setValue("user");
@@ -97,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 validate(User.getText().toString(), Password.getText().toString());
+
             }
         });
     }
@@ -109,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         else if((user.equals("user")) && (password.equals("user"))){
-            Intent intent2 = new Intent(MainActivity.this, thirdActivity.class);
+            Intent intent2 = new Intent(MainActivity.this, Main2Activity.class);
             startActivity(intent2);
         }
         else {
