@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class thirdActivity extends AppCompatActivity {
@@ -30,6 +31,22 @@ public class thirdActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Witaj User!");
         setSupportActionBar(toolbar);
+
+
+      final Button rezerwuj = findViewById(R.id.rezerwuj);
+
+
+
+        rezerwuj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatabase.child("room2").child("name").setValue("true");
+
+                rezerwuj.setEnabled(false);
+                rezerwuj.setText("Zarezerwowano!");
+
+            }
+        });
 
 
 
